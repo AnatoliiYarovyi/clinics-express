@@ -1,4 +1,3 @@
-import { sql } from 'drizzle-orm';
 import { BetterSQLite3Database } from 'drizzle-orm-sqlite/better-sqlite3';
 import { and, asc, desc, eq, like, or } from 'drizzle-orm/expressions';
 
