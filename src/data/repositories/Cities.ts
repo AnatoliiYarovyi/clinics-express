@@ -11,7 +11,7 @@ export class Cities {
   }
 
   async getCities(value: string) {
-    const result = await this.db
+    const results = await this.db
       .select(cities)
       .fields({
         city: cities.cityName,
@@ -19,11 +19,11 @@ export class Cities {
       .where(like(cities.cityName, `${value}%`))
       .all();
 
-    return result;
+    return results;
   }
 
   async getState(value: string) {
-    const result = await this.db
+    const results = await this.db
       .select(cities)
       .fields({
         state: cities.state,
@@ -32,6 +32,6 @@ export class Cities {
       .groupBy(cities.state)
       .all();
 
-    return result;
+    return results;
   }
 }

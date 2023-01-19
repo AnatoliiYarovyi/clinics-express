@@ -9,12 +9,12 @@ export class CtrlClinics {
     const clinics = new Clinics(db);
     const { value } = req.query;
 
-    const result = await clinics.getClinicsByCity(`${value}`);
+    const results = await clinics.getClinicsByCity(`${value}`);
 
     res.status(200).json({
       status: 'success',
       data: {
-        result,
+        results,
       },
     });
   }
@@ -24,12 +24,12 @@ export class CtrlClinics {
     const clinics = new Clinics(db);
     const { value } = req.query;
 
-    const result = await clinics.getClinicsByName(`${value}`);
+    const results = await clinics.getClinicsByName(`${value}`);
 
     res.status(200).json({
       status: 'success',
       data: {
-        result,
+        results,
       },
     });
   }
@@ -39,12 +39,12 @@ export class CtrlClinics {
     const clinics = new Clinics(db);
     const { value } = req.query;
 
-    const result = await clinics.getClinicsByPostcode(`${value}`);
+    const results = await clinics.getClinicsByPostcode(`${value}`);
 
     res.status(200).json({
       status: 'success',
       data: {
-        result,
+        results,
       },
     });
   }
@@ -54,12 +54,12 @@ export class CtrlClinics {
     const clinics = new Clinics(db);
     const { value } = req.query;
 
-    const result = await clinics.getClinicsByState(`${value}`);
+    const results = await clinics.getClinicsByState(`${value}`);
 
     res.status(200).json({
       status: 'success',
       data: {
-        result,
+        results,
       },
     });
   }
@@ -69,12 +69,12 @@ export class CtrlClinics {
     const clinics = new Clinics(db);
     const { value } = req.query;
 
-    const result = await clinics.getClinicsBySuburb(`${value}`);
+    const results = await clinics.getClinicsBySuburb(`${value}`);
 
     res.status(200).json({
       status: 'success',
       data: {
-        result,
+        results,
       },
     });
   }

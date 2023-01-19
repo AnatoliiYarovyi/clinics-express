@@ -9,12 +9,12 @@ export class CtrlSuburbs {
     const suburbs = new Suburbs(db);
     const { value } = req.query;
 
-    const result = await suburbs.getSuburbs(`${value}`);
+    const results = await suburbs.getSuburbs(`${value}`);
 
     res.status(200).json({
       status: 'success',
       data: {
-        result,
+        results,
       },
     });
   }
@@ -24,12 +24,12 @@ export class CtrlSuburbs {
     const suburbs = new Suburbs(db);
     const { value } = req.query;
 
-    const result = await suburbs.getPostcode(`${value}`);
+    const results = await suburbs.getPostcode(`${value}`);
 
     res.status(200).json({
       status: 'success',
       data: {
-        result,
+        results,
       },
     });
   }

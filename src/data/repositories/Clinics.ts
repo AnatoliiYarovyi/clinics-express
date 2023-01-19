@@ -12,7 +12,7 @@ export class Clinics {
   }
 
   async getClinicsByName(value: string) {
-    const result = await this.db
+    const results = await this.db
       .select(clinics)
       .fields({
         city: clinics.city,
@@ -29,11 +29,11 @@ export class Clinics {
       .where(like(clinics.clinicName, `%${value}%`))
       .all();
 
-    return result;
+    return results;
   }
 
   async getClinicsByCity(value: string) {
-    const result = await this.db
+    const results = await this.db
       .select(clinics)
       .fields({
         city: clinics.city,
@@ -50,11 +50,11 @@ export class Clinics {
       .where(like(clinics.city, `%${value}%`))
       .all();
 
-    return result;
+    return results;
   }
 
   async getClinicsByState(value: string) {
-    const result = await this.db
+    const results = await this.db
       .select(clinics)
       .fields({
         city: clinics.city,
@@ -71,11 +71,11 @@ export class Clinics {
       .where(like(clinics.state, `%${value}%`))
       .all();
 
-    return result;
+    return results;
   }
 
   async getClinicsByPostcode(value: string) {
-    const result = await this.db
+    const results = await this.db
       .select(clinics)
       .fields({
         city: clinics.city,
@@ -92,11 +92,11 @@ export class Clinics {
       .where(like(clinics.postcode, `%${value}%`))
       .all();
 
-    return result;
+    return results;
   }
 
   async getClinicsBySuburb(value: string) {
-    const result = await this.db
+    const results = await this.db
       .select(clinics)
       .fields({
         city: clinics.city,
@@ -113,6 +113,6 @@ export class Clinics {
       .where(like(clinics.suburb, `%${value}%`))
       .all();
 
-    return result;
+    return results;
   }
 }

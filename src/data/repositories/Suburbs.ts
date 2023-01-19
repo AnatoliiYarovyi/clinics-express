@@ -11,7 +11,7 @@ export class Suburbs {
   }
 
   async getSuburbs(value: string) {
-    const result = await this.db
+    const results = await this.db
       .select(suburbs)
       .fields({
         suburbs: suburbs.suburbName,
@@ -19,11 +19,11 @@ export class Suburbs {
       .where(like(suburbs.suburbName, `${value}%`))
       .all();
 
-    return result;
+    return results;
   }
 
   async getPostcode(value: string) {
-    const result = await this.db
+    const results = await this.db
       .select(suburbs)
       .fields({
         postcode: suburbs.postcode,
@@ -32,6 +32,6 @@ export class Suburbs {
       .groupBy(suburbs.postcode)
       .all();
 
-    return result;
+    return results;
   }
 }

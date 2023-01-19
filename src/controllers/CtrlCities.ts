@@ -9,12 +9,12 @@ export class CtrlCities {
     const cities = new Cities(db);
     const { value } = req.query;
 
-    const result = await cities.getCities(`${value}`);
+    const results = await cities.getCities(`${value}`);
 
     res.status(200).json({
       status: 'success',
       data: {
-        result,
+        results,
       },
     });
   }
@@ -24,12 +24,12 @@ export class CtrlCities {
     const cities = new Cities(db);
     const { value } = req.query;
 
-    const result = await cities.getState(`${value}`);
+    const results = await cities.getState(`${value}`);
 
     res.status(200).json({
       status: 'success',
       data: {
-        result,
+        results,
       },
     });
   }
