@@ -14,7 +14,7 @@ export class Suburbs {
     const results = await this.db
       .select(suburbs)
       .fields({
-        suburbs: suburbs.suburbName,
+        suburb: suburbs.suburbName,
       })
       .where(like(suburbs.suburbName, `${value}%`))
       .all();
