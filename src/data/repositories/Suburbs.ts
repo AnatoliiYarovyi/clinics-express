@@ -17,6 +17,7 @@ export class Suburbs {
         suggestion: suburbs.suburbName,
       })
       .where(like(suburbs.suburbName, `${value}%`))
+      .groupBy(suburbs.suburbName)
       .all();
 
     return results;
