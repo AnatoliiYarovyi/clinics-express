@@ -14,7 +14,7 @@ export class Suburbs {
     const results = await this.db
       .select(suburbs)
       .fields({
-        suburb: suburbs.suburbName,
+        suggestion: suburbs.suburbName,
       })
       .where(like(suburbs.suburbName, `${value}%`))
       .all();
@@ -26,7 +26,7 @@ export class Suburbs {
     const results = await this.db
       .select(suburbs)
       .fields({
-        postcode: suburbs.postcode,
+        suggestion: suburbs.postcode,
       })
       .where(like(suburbs.postcode, `${value}%`))
       .groupBy(suburbs.postcode)

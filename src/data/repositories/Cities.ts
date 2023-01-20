@@ -14,7 +14,7 @@ export class Cities {
     const results = await this.db
       .select(cities)
       .fields({
-        city: cities.cityName,
+        suggestion: cities.cityName,
       })
       .where(like(cities.cityName, `${value}%`))
       .all();
@@ -26,7 +26,7 @@ export class Cities {
     const results = await this.db
       .select(cities)
       .fields({
-        state: cities.state,
+        suggestion: cities.state,
       })
       .where(like(cities.state, `${value}%`))
       .groupBy(cities.state)
