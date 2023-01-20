@@ -23,5 +23,10 @@ router.get(
   connectingToDb,
   controllerWrapper(ctrl.getClinicsBySuburb),
 );
+router.get(
+  '/searchClinicsName',
+  connectingToDb,
+  controllerWrapper(ctrl.getClinicNames),
+);
 
 export default router;

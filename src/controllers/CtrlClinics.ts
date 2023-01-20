@@ -78,4 +78,19 @@ export class CtrlClinics {
       },
     });
   }
+
+  async getClinicNames(req: Request, res, next) {
+    const db: BetterSQLite3Database = req.body.connection;
+    const clinics = new Clinics(db);
+    const { value } = req.query;
+
+    const results = await clinics.getClinicNames(`${value}`);
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        results,
+      },
+    });
+  }
 }

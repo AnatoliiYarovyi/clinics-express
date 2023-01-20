@@ -115,4 +115,17 @@ export class Clinics {
 
     return results;
   }
+
+  async getClinicNames(value: string) {
+    const results = await this.db
+      .select(clinics)
+      .fields({
+        suggestion: clinics.clinicName,
+      })
+      .where(like(clinics.clinicName, `${value}%`))
+      .groupBy(clinics.clinicName)
+      .all();
+
+    return results;
+  }
 }
