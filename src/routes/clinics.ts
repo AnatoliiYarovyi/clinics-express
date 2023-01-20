@@ -24,7 +24,7 @@ router.get(
   controllerWrapper(ctrl.getClinicsBySuburb),
 );
 router.get(
-  '/searchClinicsName',
+  '/searchName',
   connectingToDb,
   controllerWrapper(ctrl.getClinicNames),
 );
