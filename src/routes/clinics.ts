@@ -2,31 +2,14 @@ import express from 'express';
 const router = express.Router();
 
 import controllerWrapper from '../middlewares/controllerWrapper';
-import connectingToDb from '../middlewares/connectingToDb';
 import { CtrlClinics } from '../controllers/CtrlClinics';
 const ctrl = new CtrlClinics();
 
-router.get('/byCity', connectingToDb, controllerWrapper(ctrl.getClinicsByCity));
-router.get('/byName', connectingToDb, controllerWrapper(ctrl.getClinicsByName));
-router.get(
-  '/byPostcode',
-  connectingToDb,
-  controllerWrapper(ctrl.getClinicsByPostcode),
-);
-router.get(
-  '/byState',
-  connectingToDb,
-  controllerWrapper(ctrl.getClinicsByState),
-);
-router.get(
-  '/bySuburb',
-  connectingToDb,
-  controllerWrapper(ctrl.getClinicsBySuburb),
-);
-router.get(
-  '/searchName',
-  connectingToDb,
-  controllerWrapper(ctrl.getClinicNames),
-);
+router.get('/byCity', controllerWrapper(ctrl.getClinicsByCity));
+router.get('/byName', controllerWrapper(ctrl.getClinicsByName));
+router.get('/byPostcode', controllerWrapper(ctrl.getClinicsByPostcode));
+router.get('/byState', controllerWrapper(ctrl.getClinicsByState));
+router.get('/bySuburb', controllerWrapper(ctrl.getClinicsBySuburb));
+router.get('/searchName', controllerWrapper(ctrl.getClinicNames));
 
 export default router;
