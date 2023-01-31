@@ -1,14 +1,11 @@
 import { BetterSQLite3Database } from 'drizzle-orm-sqlite/better-sqlite3';
 import { and, asc, desc, eq, like, or } from 'drizzle-orm/expressions';
 
+import connecting from '../../db/connecting';
 import { cities } from '../tables/citiesTable';
 
 export class Cities {
-  private db: BetterSQLite3Database;
-
-  constructor(db: BetterSQLite3Database) {
-    this.db = db;
-  }
+  private db: BetterSQLite3Database = connecting();
 
   async getCities(value: string) {
     const results = await this.db
