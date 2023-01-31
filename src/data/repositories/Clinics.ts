@@ -1,6 +1,5 @@
-import { sql } from 'drizzle-orm';
 import { BetterSQLite3Database } from 'drizzle-orm-sqlite/better-sqlite3';
-import { and, asc, desc, eq, like, or } from 'drizzle-orm/expressions';
+import { like } from 'drizzle-orm/expressions';
 
 import connecting from '../../db/connecting';
 import { clinics } from '../tables/clinicsTable';
@@ -9,7 +8,7 @@ export class Clinics {
   private db: BetterSQLite3Database = connecting();
 
   async getClinicsByName(value: string) {
-    const results = await this.db
+    const results = this.db
       .select(clinics)
       .fields({
         city: clinics.city,
@@ -30,7 +29,7 @@ export class Clinics {
   }
 
   async getClinicsByCity(value: string) {
-    const results = await this.db
+    const results = this.db
       .select(clinics)
       .fields({
         city: clinics.city,
@@ -51,7 +50,7 @@ export class Clinics {
   }
 
   async getClinicsByState(value: string) {
-    const results = await this.db
+    const results = this.db
       .select(clinics)
       .fields({
         city: clinics.city,
@@ -72,7 +71,7 @@ export class Clinics {
   }
 
   async getClinicsByPostcode(value: string) {
-    const results = await this.db
+    const results = this.db
       .select(clinics)
       .fields({
         city: clinics.city,
@@ -93,7 +92,7 @@ export class Clinics {
   }
 
   async getClinicsBySuburb(value: string) {
-    const results = await this.db
+    const results = this.db
       .select(clinics)
       .fields({
         city: clinics.city,
@@ -114,7 +113,7 @@ export class Clinics {
   }
 
   async getClinicNames(value: string) {
-    const results = await this.db
+    const results = this.db
       .select(clinics)
       .fields({
         suggestion: clinics.clinicName,

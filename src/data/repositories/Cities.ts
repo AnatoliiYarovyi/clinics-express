@@ -1,5 +1,5 @@
 import { BetterSQLite3Database } from 'drizzle-orm-sqlite/better-sqlite3';
-import { and, asc, desc, eq, like, or } from 'drizzle-orm/expressions';
+import { like } from 'drizzle-orm/expressions';
 
 import connecting from '../../db/connecting';
 import { cities } from '../tables/citiesTable';
@@ -8,7 +8,7 @@ export class Cities {
   private db: BetterSQLite3Database = connecting();
 
   async getCities(value: string) {
-    const results = await this.db
+    const results = this.db
       .select(cities)
       .fields({
         suggestion: cities.cityName,
@@ -20,7 +20,7 @@ export class Cities {
   }
 
   async getState(value: string) {
-    const results = await this.db
+    const results = this.db
       .select(cities)
       .fields({
         suggestion: cities.state,

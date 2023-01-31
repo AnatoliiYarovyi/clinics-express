@@ -8,7 +8,7 @@ export class Suburbs {
   private db: BetterSQLite3Database = connecting();
 
   async getSuburbs(value: string) {
-    const results = await this.db
+    const results = this.db
       .select(suburbs)
       .fields({
         suggestion: suburbs.suburbName,
@@ -21,7 +21,7 @@ export class Suburbs {
   }
 
   async getPostcode(value: string) {
-    const results = await this.db
+    const results = this.db
       .select(suburbs)
       .fields({
         suggestion: suburbs.postcode,
