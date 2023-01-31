@@ -1,36 +1,36 @@
-import { BetterSQLite3Database } from 'drizzle-orm-sqlite/better-sqlite3';
-import { Request } from 'express';
+import { Request, Response } from 'express';
 
 import { Cities } from '../data/repositories/Cities';
+import { Suggestion, TypedDataResponse } from '../interfaces/Ctrl';
+
+const cities = new Cities();
 
 export class CtrlCities {
-  async getCities(req: Request, res, next) {
-    const db: BetterSQLite3Database = req.body.connection;
-    const cities = new Cities(db);
+  async getCities(req: Request, res: Response) {
     const { value } = req.query;
 
     const results = await cities.getCities(`${value}`);
 
+    const typedDataResponse: TypedDataResponse<Suggestion> = {
+      results,
+    };
     res.status(200).json({
       status: 'success',
-      data: {
-        results,
-      },
+      data: typedDataResponse,
     });
   }
 
-  async getState(req: Request, res, next) {
-    const db: BetterSQLite3Database = req.body.connection;
-    const cities = new Cities(db);
+  async getState(req: Request, res: Response) {
     const { value } = req.query;
 
     const results = await cities.getState(`${value}`);
 
+    const typedDataResponse: TypedDataResponse<Suggestion> = {
+      results,
+    };
     res.status(200).json({
       status: 'success',
-      data: {
-        results,
-      },
+      data: typedDataResponse,
     });
   }
 }
